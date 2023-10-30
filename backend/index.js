@@ -28,7 +28,7 @@ app.use(function (req, res, next) {
   next();
 });
 
-app.use("/", require("./routes"));.
+app.use("/", require("./routes"));
 
 //---------------------------DEPLOYMENT CODE----------------------------------
 
