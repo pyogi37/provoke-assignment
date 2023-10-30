@@ -1,24 +1,21 @@
-import logo from './logo.svg';
-import './App.css';
+import { Route, Routes } from "react-router-dom";
+import "./App.css";
+import AuthPage from "./pages/AuthPage";
+import Homepage from "./pages/Homepage";
+import Payment from "./components/Payment";
+import { UserState } from "./Context/UserProvider";
+import { Box } from "@chakra-ui/react";
 
 function App() {
+  const { user } = UserState();
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Box className="App" w={"100vw"} h={"100vh"} bgColor={"darkblue"}>
+      <Routes>
+        <Route path="/" Component={AuthPage}></Route>
+        {user && <Route path="/home" Component={Homepage}></Route>}
+        {user && <Route path="/payment" Component={Payment}></Route>}
+      </Routes>
+    </Box>
   );
 }
 
