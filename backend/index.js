@@ -5,7 +5,6 @@ dotenv.config({ path: __dirname + "/.env" });
 
 const connectDB = require("./config/db");
 const port = process.env.PORT;
-const colors = require("colors");
 const { notFound, errorHandler } = require("./middleware/errorMiddleware");
 const path = require("path");
 
@@ -54,5 +53,5 @@ const server = app.listen(port, function (err) {
   if (err) {
     console.log(`Error in running the server: ${err}`);
   }
-  console.log(`Server running on port ${port}`.yellow.bold);
+  console.log(`Server running on port ${port}`);
 });
